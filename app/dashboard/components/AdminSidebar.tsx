@@ -31,19 +31,12 @@ const adminSidebarItems = [
     items: [
       { title: "Dashboard", url: "/dashboard", icon: LayoutDashboard },
       { title: "Projects", url: "/dashboard/projects", icon: FilesIcon },
-      { title: "Resources", url: "/dashboard/resources", icon: CodeIcon },
     ],
   },
   {
     group: "Community",
     items: [
       { title: "Testimonials", url: "/dashboard/reviews", icon: Stars },
-      { title: "Orders", url: "/dashboard/orders", icon: ListOrderedIcon },
-      {
-        title: "Transactions",
-        url: "/dashboard/transactions",
-        icon: DollarSign,
-      },
     ],
   },
   {

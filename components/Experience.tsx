@@ -6,7 +6,7 @@ import { GlassCard } from "./ui/GlassCard";
 
 const experiences = [
   {
-    role: "Founder & Full-Stack Developer",
+    role: "Full-Stack Developer",
     company: "ArtistyCode Studio",
     date: "Jan 2024 - Present",
     desc: "Architecting scalable CMS, CRM, and LMS platforms using Next.js and MERN. Designed secure role-based access systems and reduced client onboarding time by 25%.",

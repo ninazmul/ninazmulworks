@@ -102,3 +102,27 @@ export const services = [
   },
 ];
 
+export const testimonials = [
+  {
+    id: 1,
+    name: "Alex Rivera",
+    title: "Senior Technical Architect",
+    quote: "Nazmul's approach to API design is exceptionally clean. His ability to modernize legacy systems while maintaining high security standards significantly accelerated our deployment timeline.",
+    image: "/assets/images/testimonials/alex.png",
+  },
+  {
+    id: 2,
+    name: "Sarah Chen",
+    title: "Product Director at TechFlow",
+    quote: "Building a CRM from scratch is no small feat, but Nazmul delivered a scalable, high-performance solution that exceeded our expectations for speed and user experience.",
+    image: "/assets/images/testimonials/sarah.png",
+  },
+  {
+    id: 3,
+    name: "Thomas Mueller",
+    title: "Founder of SUFFAH",
+    quote: "A rare engineer who understands the business vision as much as the code. He transformed our community platform into a professional, high-performance ecosystem.",
+    image: "/assets/images/testimonials/thomas.png",
+  }
+];
+
