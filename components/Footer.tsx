@@ -65,7 +65,8 @@ const Footer = () => {
       {/* Bottom Bar */}
       <div className="max-w-6xl mx-auto mt-10 flex flex-col md:flex-row justify-between items-center gap-6 border-t border-white/10 pt-6">
         <p className="text-xs md:text-sm text-white/50">
-          &copy; {new Date().getFullYear()} N.I. Nazmul · All Rights Reserved
+          &copy; {new Date().getFullYear()} <a href="/dashboard" target="_blank">N.I. Nazmul</a> · All Rights
+          Reserved
         </p>
 
         <div className="flex items-center gap-4">
