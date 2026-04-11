@@ -15,7 +15,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://www.ninazmul.com"), // replace with your portfolio domain
+  metadataBase: new URL("https://ninazmulworks.vercel.app"), // replace with your portfolio domain
   title: "N.I. Nazmul | Personal Portfolio",
   description:
     "Portfolio of N.I. Nazmul — Full-Stack Software Developer. Showcasing innovative software projects, SaaS platforms, and premium branding work.",
@@ -40,17 +40,17 @@ export const metadata: Metadata = {
     apple: "/assets/images/logo2.png",
   },
   alternates: {
-    canonical: "https://www.ninazmul.com/",
+    canonical: "https://ninazmulworks.vercel.app/",
   },
   openGraph: {
     title: "N.I. Nazmul | Personal Portfolio",
     description:
       "Explore the work and projects of N.I. Nazmul — building scalable SaaS platforms, certificate verification systems, and luxury-grade branding solutions.",
-    url: "https://www.ninazmul.com/",
+    url: "https://ninazmulworks.vercel.app/",
     siteName: "N.I. Nazmul Portfolio",
     images: [
       {
-        url: "https://www.ninazmul.com/assets/og-image.png",
+        url: "https://ninazmulworks.vercel.app/assets/og-image.png",
         width: 1200,
         height: 630,
         alt: "N.I. Nazmul Portfolio",

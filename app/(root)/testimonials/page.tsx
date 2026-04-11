@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     title: "Client Testimonials | N.I. Nazmul",
     description:
       "Verified client feedback about N.I. Nazmul’s SaaS, web, and mobile solutions.",
-    url: "https://ninazmul.com/testimonials",
+    url: "https://ninazmulworks.vercel.app/testimonials",
     siteName: "N.I. Nazmul Portfolio",
     images: [
       {

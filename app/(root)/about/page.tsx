@@ -25,7 +25,7 @@ export const metadata: Metadata = {
     title: "About Me | N.I. Nazmul",
     description:
       "Discover the journey of N.I. Nazmul — building scalable SaaS platforms, certificate verification systems, and luxury-grade branding solutions.",
-    url: "https://ninazmul.com/about",
+    url: "https://ninazmulworks.vercel.app/about",
     siteName: "N.I. Nazmul Portfolio",
     images: [
       {

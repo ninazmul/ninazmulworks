@@ -42,7 +42,7 @@ export async function POST(req: Request) {
             </div>
             <div style="background:#f1f1f1;padding:16px;text-align:center;font-size:12px;color:#777;">
               <p style="margin:0;">&copy; ${new Date().getFullYear()} N.I. Nazmul. All rights reserved.</p>
-              <a href="https://ninazmul.com" style="color:#555;text-decoration:none;">www.ninazmul.com</a>
+              <a href="https://ninazmulworks.vercel.app" style="color:#555;text-decoration:none;">www.ninazmulworks.vercel.app</a>
             </div>
           </div>
         </div>

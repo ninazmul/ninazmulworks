@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     title: "Contact Me | N.I. Nazmul",
     description:
       "Have a project or idea? Contact N.I. Nazmul to collaborate on scalable web, mobile, and SaaS solutions.",
-    url: "https://ninazmul.com/contact",
+    url: "https://ninazmulworks.vercel.app/contact",
     siteName: "N.I. Nazmul Portfolio",
     images: [
       {

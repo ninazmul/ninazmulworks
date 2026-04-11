@@ -35,7 +35,7 @@ export async function generateMetadata({ params }: PageProps) {
     openGraph: {
       title: `${project.title} | N.I. Nazmul`,
       description: project.description ?? "Explore this project in detail.",
-      url: `https://ninazmul.com/projects/${project._id}`,
+      url: `https://ninazmulworks.vercel.app/projects/${project._id}`,
       siteName: "N.I. Nazmul Portfolio",
       images: project.image
         ? [{ url: project.image, width: 1200, height: 630, alt: project.title }]

@@ -1,8 +1,4 @@
 import { services } from "@/data";
-import Image from "next/image";
-import Link from "next/link";
-import MagicButton from "./MagicButton";
-import { Contact } from "lucide-react";
 
 const Services = () => {
   return (
