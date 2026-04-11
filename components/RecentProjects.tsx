@@ -17,7 +17,7 @@ const RecentProjects = async () => {
   const displayedProjects = allProjects.slice(0, 6); 
 
   return (
-    <section id="projects" className="py-24 bg-black text-white relative">
+    <section id="projects" className="py-24 bg-black text-white relative scroll-mt-24">
       <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-zinc-800 to-transparent" />
       
       {/* Heading */}

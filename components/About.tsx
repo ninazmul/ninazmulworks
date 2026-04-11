@@ -13,7 +13,7 @@ const metrics = [
 
 const About = () => {
   return (
-    <section id="about" className="py-24 bg-black text-white px-6 relative overflow-hidden">
+    <section id="about" className="py-24 bg-black text-white px-6 relative overflow-hidden scroll-mt-24">
       <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-white/5 rounded-full blur-[120px] -z-10" />
       
       <div className="max-w-7xl mx-auto flex flex-col lg:flex-row gap-16 items-start">

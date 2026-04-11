@@ -16,6 +16,14 @@ export const headerLinks = [
     route: "#experience",
   },
   {
+    label: "Education",
+    route: "#education",
+  },
+  {
+    label: "Certs",
+    route: "#certifications",
+  },
+  {
     label: "Projects",
     route: "#projects",
   },

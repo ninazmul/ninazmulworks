@@ -8,7 +8,7 @@ import { FaExternalLinkAlt, FaAward } from "react-icons/fa";
 
 const Certifications = () => {
   return (
-    <section id="certifications" className="py-24 bg-black text-white px-6 relative">
+    <section id="certifications" className="py-24 bg-black text-white px-6 relative scroll-mt-24">
       <div className="max-w-7xl mx-auto">
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
           <div className="max-w-xl">

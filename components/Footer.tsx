@@ -61,6 +61,9 @@ const Footer = () => {
                     <li className="hover:text-white transition-colors"><a href="#hero">Home</a></li>
                     <li className="hover:text-white transition-colors"><a href="#about">About</a></li>
                     <li className="hover:text-white transition-colors"><a href="#projects">Work</a></li>
+                    <li className="hover:text-white transition-colors"><a href="#experience">Experience</a></li>
+                    <li className="hover:text-white transition-colors"><a href="#education">Education</a></li>
+                    <li className="hover:text-white transition-colors"><a href="#certifications">Certifications</a></li>
                     <li className="hover:text-white transition-colors"><a href="#contact">Contact</a></li>
                 </ul>
             </div>
@@ -69,7 +72,7 @@ const Footer = () => {
                 <p className="text-[10px] font-mono uppercase tracking-[0.3em] text-zinc-600">Engagement</p>
                 <ul className="space-y-2 text-sm font-light text-zinc-400">
                     <li className="hover:text-white transition-colors"><a href="mailto:contact@artistycode.studio">Email</a></li>
-                    <li className="hover:text-white transition-colors"><a href="https://wa.me/+8801580845746">WhatsApp</a></li>
+                    <li className="hover:text-white transition-colors"><a href="https://wa.me/8801580845746" target="_blank">WhatsApp</a></li>
                 </ul>
             </div>
         </div>

@@ -70,7 +70,7 @@ export const ContactUs = () => {
   };
 
   return (
-    <section id="contact" className="py-24 bg-black text-white px-6 relative">
+    <section id="contact" className="py-24 bg-black text-white px-6 relative scroll-mt-24">
         <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-zinc-800 to-transparent" />
 
         <div className="max-w-6xl mx-auto">
@@ -149,6 +149,16 @@ export const ContactUs = () => {
                                         value={formData.user_email}
                                         onChange={handleChange}
                                         required
+                                        className="w-full bg-white/[0.03] border border-white/10 px-4 py-4 rounded-xl text-white placeholder:text-zinc-700 focus:outline-none focus:border-zinc-500 transition-colors"
+                                    />
+                                </div>
+                                <div className="space-y-2">
+                                    <label className="text-xs uppercase tracking-widest text-zinc-500 font-mono ml-1">Phone (Optional)</label>
+                                    <input
+                                        name="phone"
+                                        placeholder="+880 1XXX-XXXXXX"
+                                        value={formData.phone}
+                                        onChange={handleChange}
                                         className="w-full bg-white/[0.03] border border-white/10 px-4 py-4 rounded-xl text-white placeholder:text-zinc-700 focus:outline-none focus:border-zinc-500 transition-colors"
                                     />
                                 </div>

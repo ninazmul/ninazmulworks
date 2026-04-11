@@ -7,7 +7,7 @@ import { education } from "@/data";
 
 const Education = () => {
   return (
-    <section id="education" className="py-24 bg-black text-white px-6 relative">
+    <section id="education" className="py-24 bg-black text-white px-6 relative scroll-mt-24">
       <div className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-zinc-800 to-transparent" />
       
       <div className="text-center max-w-2xl mx-auto relative z-10 mb-20">

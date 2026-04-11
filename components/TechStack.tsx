@@ -39,7 +39,7 @@ const itemAnim: Variants = {
 
 const TechStack = () => {
   return (
-    <section id="tech-stack" className="py-24 bg-black text-white px-6 relative">
+    <section id="tech-stack" className="py-24 bg-black text-white px-6 relative scroll-mt-24">
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_right,_var(--tw-gradient-stops))] from-white/5 via-transparent to-transparent pointer-events-none" />
 
       <div className="text-center max-w-2xl mx-auto relative z-10 mb-16">

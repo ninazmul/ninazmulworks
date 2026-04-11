@@ -52,11 +52,16 @@ const NavItems = ({ onItemSelected }: NavItemsProps) => {
             <a 
               href={link.route} 
               onClick={(e) => {
-                e.preventDefault();
-                const targetId = link.route.substring(1);
-                const elem = document.getElementById(targetId);
-                if (elem) {
-                  elem.scrollIntoView({ behavior: "smooth" });
+                const targetId = link.route.startsWith("#") ? link.route.substring(1) : null;
+                if (targetId) {
+                  e.preventDefault();
+                  const elem = document.getElementById(targetId);
+                  if (elem) {
+                    elem.scrollIntoView({ behavior: "smooth" });
+                  } else {
+                    // Fallback to standard navigation if element not found in DOM
+                    window.location.hash = targetId;
+                  }
                 }
                 onItemSelected?.();
               }}
