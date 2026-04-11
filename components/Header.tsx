@@ -9,7 +9,7 @@ export default function Header() {
   return (
     <header className="max-w-7xl mx-auto w-full backdrop-blur-md rounded-md shadow-md">
       <div className="flex items-center justify-between px-4 lg:px-8">
-        <Link href="/" className="flex items-center gap-2">
+        <Link href="/" className="flex items-center gap-2 py-2">
           <Image
             src="/assets/images/logo.png"
             width={200}
@@ -22,7 +22,7 @@ export default function Header() {
         </div>
         <div className="flex items-center gap-4">
           <a
-            href="https://wa.me/8801580845746?text=Hello%20ArtistyCode%20Studio,%20I%20am%20reaching%20out%20via%20your%20official%20website.%20Please%20assist%20me%20with%20my%20inquiry."
+            href="https://wa.me/8801580845746?text=Hello%20Nazmul,%20I%20came%20across%20your%20portfolio%20and%20am%20interested%20in%20working%20with%20you.%20Let’s%20discuss."
             target="_blank"
             rel="noopener noreferrer"
           >
