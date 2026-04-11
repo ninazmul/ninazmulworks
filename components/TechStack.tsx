@@ -4,79 +4,74 @@ import React from "react";
 import { motion, Variants } from "framer-motion";
 import { GlassCard } from "./ui/GlassCard";
 import { cn } from "@/lib/utils";
-
-const stack = [
-  { name: "Next.js", category: "Frontend", shadow: "shadow-zinc-500/10" },
-  { name: "React", category: "Frontend", shadow: "shadow-zinc-500/10" },
-  { name: "TypeScript", category: "Frontend", shadow: "shadow-zinc-500/10" },
-  { name: "Tailwind CSS", category: "Frontend", shadow: "shadow-zinc-500/10" },
-  { name: "Node.js", category: "Backend", shadow: "shadow-zinc-500/10" },
-  { name: "Express.js", category: "Backend", shadow: "shadow-zinc-500/10" },
-  { name: "REST APIs", category: "Backend", shadow: "shadow-zinc-500/10" },
-  { name: "MongoDB", category: "Database", shadow: "shadow-zinc-500/10" },
-  { name: "PostgreSQL", category: "Database", shadow: "shadow-zinc-500/10" },
-  { name: "MySQL", category: "Database", shadow: "shadow-zinc-500/10" },
-  { name: "Docker", category: "Tools", shadow: "shadow-zinc-500/10" },
-  { name: "Git", category: "Tools", shadow: "shadow-zinc-500/10" },
-  { name: "Linux / VPS", category: "Platform", shadow: "shadow-zinc-500/10" },
-  { name: "Firebase", category: "Platform", shadow: "shadow-zinc-500/10" },
-];
+import { techSkills } from "@/data";
 
 const container: Variants = {
   hidden: { opacity: 0 },
   show: {
     opacity: 1,
     transition: {
-      staggerChildren: 0.1,
+      staggerChildren: 0.05,
     },
   },
 };
 
 const itemAnim: Variants = {
-  hidden: { opacity: 0, scale: 0.95, y: 10 },
-  show: { opacity: 1, scale: 1, y: 0, transition: { type: "spring", damping: 20 } },
+  hidden: { opacity: 0, scale: 0.9, y: 10 },
+  show: { opacity: 1, scale: 1, y: 0, transition: { type: "spring", damping: 25, stiffness: 200 } },
 };
 
 const TechStack = () => {
+  // Group skills by category
+  const categories = Array.from(new Set(techSkills.map(s => s.category)));
+
   return (
-    <section id="tech-stack" className="py-24 bg-black text-white px-6 relative scroll-mt-24">
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_right,_var(--tw-gradient-stops))] from-white/5 via-transparent to-transparent pointer-events-none" />
+    <section id="tech-stack" className="py-24 bg-black text-white px-6 relative scroll-mt-24 overflow-hidden">
+      {/* Dynamic Background */}
+      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-white/[0.02] rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-white/[0.01] rounded-full blur-[100px] pointer-events-none" />
 
-      <div className="text-center max-w-2xl mx-auto relative z-10 mb-16">
-        <h2 className="text-3xl md:text-5xl font-semibold bg-clip-text text-transparent bg-gradient-to-r from-zinc-200 to-neutral-500">
-          Core Proficiencies
-        </h2>
-        <p className="text-zinc-500 mt-4 text-sm md:text-base font-light">
-          A focused overview of the technologies I utilize to bridge the gap 
-          between concept and reality.
-        </p>
+      <div className="max-w-7xl mx-auto relative z-10">
+        <div className="text-center max-w-3xl mx-auto mb-20">
+            <h2 className="text-3xl md:text-6xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-zinc-200 to-zinc-500 mb-6 tracking-tight">
+                Technical Mastery
+            </h2>
+            <p className="text-zinc-500 text-sm md:text-base font-light font-mono uppercase tracking-[0.3em]">
+                Full-cycle ecosystem involvement
+            </p>
+        </div>
+
+        <div className="space-y-20">
+            {categories.map((category) => (
+                <div key={category} className="space-y-8">
+                    <div className="flex items-center gap-4">
+                        <h3 className="text-lg font-bold text-white tracking-widest uppercase">
+                            {category}
+                        </h3>
+                        <div className="h-px flex-1 bg-gradient-to-r from-zinc-800 to-transparent" />
+                    </div>
+
+                    <motion.div 
+                        variants={container}
+                        initial="hidden"
+                        whileInView="show"
+                        viewport={{ once: true, margin: "-50px" }}
+                        className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4"
+                    >
+                        {techSkills.filter(s => s.category === category).map((item, index) => (
+                            <motion.div key={index} variants={itemAnim}>
+                                <GlassCard className="px-4 py-3 flex items-center justify-center border-white/5 hover:border-zinc-500/50 transition-all group h-full">
+                                    <p className="text-xs font-medium text-zinc-400 group-hover:text-white transition-colors text-center uppercase tracking-tighter">
+                                        {item.name}
+                                    </p>
+                                </GlassCard>
+                            </motion.div>
+                        ))}
+                    </motion.div>
+                </div>
+            ))}
+        </div>
       </div>
-
-      <motion.div 
-        variants={container}
-        initial="hidden"
-        whileInView="show"
-        viewport={{ once: true, margin: "-100px" }}
-        className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 justify-center items-center gap-6 max-w-5xl mx-auto relative z-10"
-      >
-        {stack.map((item, index) => (
-          <motion.div key={index} variants={itemAnim}>
-            <GlassCard className={cn(
-                "px-6 py-5 flex items-center justify-center w-[140px] sm:w-[200px] border-zinc-800/50 transition-all group hover:border-zinc-400/30",
-                item.shadow
-            )}>
-              <div className="text-center">
-                <p className="font-bold text-zinc-100 tracking-tight group-hover:text-white transition-colors">
-                  {item.name}
-                </p>
-                <p className="text-[10px] text-zinc-500 mt-1.5 uppercase tracking-widest font-mono">
-                  {item.category}
-                </p>
-              </div>
-            </GlassCard>
-          </motion.div>
-        ))}
-      </motion.div>
     </section>
   );
 };

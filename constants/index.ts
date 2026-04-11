@@ -1,11 +1,11 @@
 export const headerLinks = [
   {
-    label: "Home",
-    route: "#hero",
-  },
-  {
     label: "About",
     route: "#about",
+  },
+  {
+    label: "Projects",
+    route: "#projects",
   },
   {
     label: "Skills",
@@ -16,16 +16,16 @@ export const headerLinks = [
     route: "#experience",
   },
   {
-    label: "Education",
-    route: "#education",
-  },
-  {
     label: "Certs",
     route: "#certifications",
   },
   {
-    label: "Projects",
-    route: "#projects",
+    label: "Education",
+    route: "#education",
+  },
+  {
+    label: "Testimonials",
+    route: "#testimonials",
   },
   {
     label: "Contact",

@@ -126,3 +126,82 @@ export const testimonials = [
   }
 ];
 
+export const techSkills = [
+  // Languages
+  { name: "TypeScript", category: "Languages" },
+  { name: "JavaScript", category: "Languages" },
+  { name: "Python", category: "Languages" },
+  { name: "C", category: "Languages" },
+  { name: "C#", category: "Languages" },
+  { name: "C++", category: "Languages" },
+  { name: "HTML5", category: "Languages" },
+  { name: "CSS3", category: "Languages" },
+  
+  // Frontend/Frameworks
+  { name: "Next.js", category: "Development" },
+  { name: "React", category: "Development" },
+  { name: "React Native", category: "Development" },
+  { name: "React Query", category: "Development" },
+  { name: "React Router", category: "Development" },
+  { name: "React Hook Form", category: "Development" },
+  { name: "Redux", category: "Development" },
+  { name: "Three.js", category: "Development" },
+  { name: "Chart.js", category: "Development" },
+  
+  // UI Libraries
+  { name: "TailwindCSS", category: "Development" },
+  { name: "MUI", category: "Development" },
+  { name: "Semantic UI", category: "Development" },
+  { name: "Bootstrap", category: "Development" },
+  { name: "DaisyUI", category: "Development" },
+  { name: "Code-Igniter", category: "Development" },
+  
+  // Backend
+  { name: "Node.js", category: "Backend" },
+  { name: "Express.js", category: "Backend" },
+  { name: "Socket.io", category: "Backend" },
+  { name: "JWT", category: "Backend" },
+  { name: "Nginx", category: "Backend" },
+  { name: "Nodemon", category: "Backend" },
+  
+  // Cloud & Infrastructure
+  { name: "AWS", category: "Cloud" },
+  { name: "Cloudflare", category: "Cloud" },
+  { name: "Firebase", category: "Cloud" },
+  { name: "Vercel", category: "Cloud" },
+  { name: "Netlify", category: "Cloud" },
+  
+  // Tools & DevOps
+  { name: "Git", category: "Tools" },
+  { name: "GitHub", category: "Tools" },
+  { name: "GitHub Actions", category: "Tools" },
+  { name: "GitLab CI", category: "Tools" },
+  { name: "Postman", category: "Tools" },
+  { name: "ESLint", category: "Tools" },
+  { name: "NPM", category: "Tools" },
+  { name: "PNPM", category: "Tools" },
+  { name: "Yarn", category: "Tools" },
+  { name: "Webpack", category: "Tools" },
+  { name: "Esbuild", category: "Tools" },
+  
+  // Database & ORM
+  { name: "MongoDB", category: "Database" },
+  { name: "MySQL", category: "Database" },
+  { name: "PostgreSQL", category: "Database" },
+  { name: "Redis", category: "Database" },
+  { name: "Prisma", category: "Database" },
+  { name: "Supabase", category: "Database" },
+  
+  // Design & Media
+  { name: "Figma", category: "Design" },
+  { name: "Adobe Photoshop", category: "Design" },
+  { name: "Adobe Premiere", category: "Design" },
+  { name: "Adobe Audition", category: "Design" },
+  { name: "Canva", category: "Design" },
+  
+  // Data Science & AI
+  { name: "Pandas", category: "Data Science" },
+  { name: "NumPy", category: "Data Science" },
+  { name: "PyTorch", category: "Data Science" },
+];
+

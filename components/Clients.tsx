@@ -1,3 +1,5 @@
+"use client";
+
 import React, { useEffect, useState } from "react";
 import { getAllReviews } from "@/lib/actions/review.actions";
 import Image from "next/image";
@@ -17,7 +19,7 @@ const Clients = () => {
         const verified = data?.filter((r: any) => r.verified) || [];
         // Merge static with verified dynamic, dynamic first
         if (verified.length > 0) {
-            setReviews([...verified, ...staticTestimonials.filter(st => !verified.some(v => v.name === st.name))]);
+            setReviews([...verified, ...staticTestimonials.filter(st => !verified.some((v: any) => v.name === st.name))]);
         }
       } catch (err) {
         console.error("Failed to fetch reviews:", err);
