@@ -57,12 +57,12 @@ const TechStack = () => {
         initial="hidden"
         whileInView="show"
         viewport={{ once: true, margin: "-100px" }}
-        className="flex flex-wrap justify-center gap-6 max-w-5xl mx-auto relative z-10"
+        className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 justify-center items-center gap-6 max-w-5xl mx-auto relative z-10"
       >
         {stack.map((item, index) => (
           <motion.div key={index} variants={itemAnim}>
             <GlassCard className={cn(
-                "px-6 py-5 flex items-center justify-center w-[160px] sm:w-[200px] border-zinc-800/50 transition-all group hover:border-zinc-400/30",
+                "px-6 py-5 flex items-center justify-center w-[140px] sm:w-[200px] border-zinc-800/50 transition-all group hover:border-zinc-400/30",
                 item.shadow
             )}>
               <div className="text-center">

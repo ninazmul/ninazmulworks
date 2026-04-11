@@ -7,7 +7,6 @@ import { GlassCard } from "./ui/GlassCard";
 const metrics = [
   { label: "Onboarding Gain", value: "25%" },
   { label: "API Efficiency", value: "30%+" },
-  { label: "Projects Led", value: "ArtistyCode" },
   { label: "Stack Focus", value: "Next.js" },
 ];
 
@@ -26,10 +25,10 @@ const About = () => {
             transition={{ duration: 0.5 }}
           >
             <h2 className="text-3xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-zinc-200 to-zinc-500 mb-6">
-              The ArtistyCode Vision
+              N.I. Nazmul's Vision
             </h2>
             <p className="text-zinc-400 text-lg leading-relaxed max-w-2xl font-light">
-              As the <span className="text-white font-medium">Founder of ArtistyCode Studio</span>, I lead full-cycle 
+              As a <span className="text-white font-medium">full-stack developer</span>, I lead full-cycle 
               software engineering environments. I bridge the gap between architectural 
               integrity and business growth, delivering CMS, CRM, and LMS solutions that 
               prioritize secure API design and operational speed.

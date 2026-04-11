@@ -1,6 +1,7 @@
 import ProjectFilters from "@/components/ProjectFilters";
 import { getAllProjects } from "@/lib/actions/project.actions";
 import { Metadata } from "next";
+import { featuredProjects } from "@/data";
 
 export const metadata: Metadata = {
   title: "Projects | N.I. Nazmul",
@@ -46,17 +47,32 @@ export const metadata: Metadata = {
 };
 
 export default async function Page() {
-  const projects = await getAllProjects();
+  const dbProjects = await getAllProjects() || [];
+  const allProjects = [
+    ...featuredProjects,
+    ...dbProjects.filter((dp: any) => !featuredProjects.some(fp => fp.title === dp.title))
+  ];
+
   return (
-    <section className="bg-black text-white px-6 py-8">
-      <div className="text-center">
-        <h1 className="text-3xl md:text-5xl font-semibold">Projects</h1>
-        <p className="text-white/60 mt-4 text-sm">
-          A selection of my work across SaaS platforms, web applications, mobile
-          apps, and cloud systems
-        </p>
+    <section className="bg-black text-white px-6 pt-32 pb-24 relative overflow-hidden min-h-screen">
+      {/* Background Ambience */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[500px] bg-gradient-to-b from-white/5 to-transparent pointer-events-none -z-10" />
+      <div className="absolute top-1/2 left-0 w-64 h-64 bg-white/5 rounded-full blur-[100px] pointer-events-none" />
+      
+      <div className="max-w-7xl mx-auto">
+        <div className="text-center mb-16">
+          <h1 className="text-4xl md:text-6xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-zinc-200 to-zinc-500 mb-6 tracking-tight">
+            Projects Archive
+          </h1>
+          <p className="text-zinc-500 text-sm md:text-base max-w-2xl mx-auto font-light leading-relaxed">
+            A technical ledger of my engineering work across **SaaS platforms**, 
+            **Enterprise systems**, and **Scalable Web Architectures**. Merging 
+            clean design with functional excellence.
+          </p>
+        </div>
+        
+        <ProjectFilters projects={allProjects} />
       </div>
-      <ProjectFilters projects={projects} />
     </section>
   );
 }

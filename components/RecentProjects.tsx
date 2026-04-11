@@ -14,7 +14,7 @@ const RecentProjects = async () => {
     ...dbProjects.filter((dp: any) => !featuredProjects.some(fp => fp.title === dp.title))
   ];
 
-  const displayedProjects = allProjects.slice(0, 6); 
+  const displayedProjects = allProjects.slice(0, 3); 
 
   return (
     <section id="projects" className="py-24 bg-black text-white relative scroll-mt-24">

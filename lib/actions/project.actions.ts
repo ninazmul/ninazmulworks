@@ -47,19 +47,26 @@ export const getAllProjects = async () => {
   }
 };
 
+import { featuredProjects } from "@/data";
+
 export const getProjectById = async (projectId: string) => {
   try {
-    await connectToDatabase();
+    // 1. Check static data first
+    const staticProject = featuredProjects.find(p => p.id === projectId);
+    if (staticProject) return staticProject;
 
+    // 2. Check Database
+    await connectToDatabase();
     const project = await Project.findById(projectId);
 
     if (!project) {
-      throw new Error("Project not found");
+      return null;
     }
 
     return JSON.parse(JSON.stringify(project));
   } catch (error) {
-    handleError(error);
+    // Return null instead of throwing to allow for cleaner UI handling
+    return null;
   }
 };
 
