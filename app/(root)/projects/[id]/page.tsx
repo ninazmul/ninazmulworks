@@ -3,6 +3,7 @@ import { getProjectById } from "@/lib/actions/project.actions";
 import Link from "next/link";
 import { FaGithub, FaLocationArrow } from "react-icons/fa6";
 import ProjectHero from "@/components/ProjectHero";
+import { GlassCard } from "@/components/ui/GlassCard";
 
 type PageProps = {
   params: Promise<{ id: string }>;
