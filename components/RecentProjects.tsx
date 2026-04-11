@@ -3,6 +3,7 @@ import Image from "next/image";
 import { getAllProjects } from "@/lib/actions/project.actions";
 import Link from "next/link";
 import MagicButton from "./MagicButton";
+import { PinContainer } from "./ui/Pin";
 
 const RecentProjects = async () => {
   const projects = await getAllProjects();
@@ -35,46 +36,50 @@ const RecentProjects = async () => {
       <div className="text-center px-6">
         <h1 className="text-3xl md:text-5xl font-semibold">Selected Work</h1>
         <p className="text-white/60 mt-3 text-sm md:text-base">
-          A curated set of recent projects across web, mobile, and games.
+          A curated set of my recent projects across web, mobile, and games.
         </p>
       </div>
 
       {/* Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 mt-16 px-6 max-w-7xl mx-auto">
+      <div className="flex flex-wrap items-center justify-center gap-10 mt-16 px-6 max-w-7xl mx-auto">
         {displayedProjects.map((item: any) => (
-          <Link
-            key={item._id}
-            href={`/projects/${item._id}`}
-            className="group block border border-white/25 bg-white/5 hover:bg-white/10 transition duration-300 rounded-md overflow-hidden hover:shadow-lg p-4"
-          >
-            {/* Image */}
-            <div className="relative overflow-hidden rounded-md border border-white/10">
-              <Image
-                src={item.image || "/assets/images/og-image.png"}
-                alt={item.title || "Project cover"}
-                width={1200}
-                height={800}
-                className="w-full h-[220px] object-cover transition duration-500 group-hover:scale-105"
-              />
-            </div>
+          <div key={item._id} className="h-[32rem] flex items-center justify-center sm:w-96 w-[80vw]">
+            <Link href={`/projects/${item._id}`}>
+              <PinContainer
+                title="View Case Study"
+                href={`/projects/${item._id}`}
+              >
+                <div className="flex basis-full flex-col p-4 tracking-tight text-slate-100/50 sm:basis-1/2 w-[20rem] h-[24rem]">
+                  {/* Glassmorphic Inner Wrapper */}
+                  <div className="absolute inset-0 bg-white/5 backdrop-blur-xl rounded-2xl border border-white/10 pointer-events-none" />
+                  
+                  <div className="relative overflow-hidden rounded-xl border border-white/10 w-full mb-6 mt-2 h-[180px]">
+                    <Image
+                      src={item.image || "/assets/images/og-image.png"}
+                      alt={item.title || "Project cover"}
+                      width={1200}
+                      height={800}
+                      className="w-full h-full object-cover transition duration-700 group-hover/pin:scale-110"
+                    />
+                  </div>
 
-            {/* Content */}
-            <div className="mt-4 space-y-2">
-              <h2 className="text-lg md:text-xl font-medium group-hover:text-white/80 transition line-clamp-1">
-                {item.title}
-              </h2>
+                  <h3 className="relative z-10 max-w-xs font-bold text-lg text-slate-100 mb-2 line-clamp-1">
+                    {item.title}
+                  </h3>
+                  
+                  <p className="relative z-10 text-sm text-slate-400 font-normal line-clamp-2">
+                    {item.description}
+                  </p>
 
-              <p className="text-sm text-white/50 line-clamp-2">
-                {item.description}
-              </p>
-
-              {/* Meta */}
-              <div className="flex items-center justify-between text-xs text-white/40 pt-2">
-                <span>{item.stack}</span>
-                <span>{item.category}</span>
-              </div>
-            </div>
-          </Link>
+                  {/* Meta */}
+                  <div className="relative z-10 flex items-center justify-between text-xs text-cyan-200 mt-auto pt-4">
+                    <span>{item.stack}</span>
+                    <span>{item.category}</span>
+                  </div>
+                </div>
+              </PinContainer>
+            </Link>
+          </div>
         ))}
       </div>
 

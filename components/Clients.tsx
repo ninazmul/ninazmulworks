@@ -65,8 +65,10 @@ const Clients = () => {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
               transition={{ duration: 0.5 }}
-              className="border border-white/10 rounded-md p-6 bg-white/5"
+              className="border border-white/10 rounded-2xl p-8 bg-white/5 backdrop-blur-xl shadow-[0_8px_32px_0_rgba(255,255,255,0.05)] relative overflow-hidden"
             >
+              {/* Subtle glare effect inside */}
+              <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent pointer-events-none opacity-20" />
               {/* Profile */}
               <div className="flex items-center gap-3 mb-4">
                 <div className="w-10 h-10 rounded-full overflow-hidden border border-white/10">
