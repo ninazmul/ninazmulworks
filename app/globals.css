@@ -1,0 +1,292 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 0%; /* pure black */
+    --foreground: 0 0% 100%; /* pure white */
+
+    --card: 0 0% 0%;
+    --card-foreground: 0 0% 100%;
+
+    --popover: 0 0% 0%;
+    --popover-foreground: 0 0% 100%;
+
+    --primary: 0 0% 100%; /* white buttons */
+    --primary-foreground: 0 0% 0%; /* black text */
+
+    --secondary: 0 0% 0%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 0 0% 20%; /* dark gray for borders */
+    --muted-foreground: 0 0% 100%;
+
+    --accent: 0 0% 0%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 0% 100%;
+    --destructive-foreground: 0 0% 0%;
+
+    --border: 0 0% 100%;
+    --input: 0 0% 0%;
+    --ring: 0 0% 100%;
+
+    --radius: 0.375rem; /* enforce rounded-md */
+  }
+
+  .dark {
+    --background: 0 0% 0%;
+    --foreground: 0 0% 100%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border !scroll-smooth;
+  }
+  body {
+    @apply bg-black text-white;
+  }
+  button {
+    @apply active:outline-none rounded-md;
+  }
+}
+
+@layer utilities {
+  .heading {
+    @apply font-bold text-4xl md:text-5xl text-center text-white;
+  }
+  .wrapper {
+    @apply mx-auto max-w-7xl p-4;
+  }
+  .input-field {
+    @apply bg-black h-[54px] text-white placeholder:text-gray-400 rounded-md px-4 py-3 border border-white focus-visible:ring-transparent;
+  }
+  .textarea {
+    @apply bg-black text-white placeholder:text-gray-400 px-5 py-3 border border-white rounded-md focus-visible:ring-transparent;
+  }
+}
+
+@keyframes scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-scroll {
+  display: flex;
+  width: max-content;
+  animation: scroll var(--animation-duration) linear infinite;
+  animation-direction: var(--animation-direction);
+}
+
+.group:hover .animate-scroll {
+  animation-play-state: paused;
+}
+
+/* ========================================== CLERK STYLES */
+.cl-logoImage {
+  height: 38px;
+}
+
+.cl-userButtonBox {
+  flex-direction: row-reverse;
+}
+
+.cl-userButtonOuterIdentifier {
+  font-size: 16px;
+}
+
+.cl-userButtonPopoverCard {
+  right: 4px !important;
+}
+
+.cl-formButtonPrimary {
+  @apply bg-white text-black rounded-md;
+}
+.cl-formButtonPrimary:hover,
+.cl-formButtonPrimary:focus,
+.cl-formButtonPrimary:active {
+  @apply bg-white text-black opacity-80;
+}
+
+/* ========================================== REACT-DATEPICKER STYLES */
+.datePicker {
+  width: 100%;
+}
+
+.react-datepicker__input-container input {
+  background-color: transparent;
+  width: 100%;
+  outline: none;
+  margin-left: 16px;
+  color: white; /* input text stays white */
+}
+
+.react-datepicker__header {
+  background-color: black !important;
+  border: none;
+  font-weight: 500;
+  color: white !important; /* month/year text visible */
+}
+
+.react-datepicker__current-month {
+  color: white !important; /* ensure month/year text is white */
+}
+
+.react-datepicker__day-name {
+  color: white !important; /* weekday names visible */
+}
+
+.react-datepicker__day {
+  color: black !important; /* default day numbers visible */
+  background-color: transparent !important;
+}
+
+.react-datepicker__day--selected,
+.react-datepicker__day--keyboard-selected {
+  background-color: white !important;
+  color: black !important;
+  border-radius: 0.375rem !important; /* rounded-md */
+}
+
+.react-datepicker__time-list-item--selected {
+  background-color: white !important;
+  color: black !important;
+  border-radius: 0.375rem !important;
+}
+
+.react-datepicker__day:hover {
+  background-color: white !important;
+  color: black !important;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: black;
+}
+
+::-webkit-scrollbar-thumb {
+  background: white;
+  border-radius: 0.375rem; /* rounded-md */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #ccc;
+}
+
+/* Firefox Scrollbar */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: white black;
+}
+
+/* Premium Responsive Loader */
+.loader {
+  position: relative;
+  display: inline-block;
+}
+
+/* Base text styling */
+.loader span {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  font-family: "Space Grotesk", sans-serif;
+  font-weight: 600;
+  font-size: clamp(18px, 4vw, 36px); /* scales with viewport */
+  letter-spacing: clamp(3px, 0.8vw, 10px);
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+/* Outline layer */
+.loader span:nth-child(1) {
+  color: transparent;
+  -webkit-text-stroke: 1px #fff;
+  opacity: 0.3;
+}
+
+/* Shimmer + breathing layer */
+.loader span:nth-child(2) {
+  background: linear-gradient(90deg, #fff, #aaa, #fff);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -webkit-text-stroke: 0.5px #fff;
+  animation:
+    shimmer 3s linear infinite,
+    breathe 4s ease-in-out infinite;
+}
+
+/* Shimmer effect */
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+/* Breathing scale effect */
+@keyframes breathe {
+  0%,
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.05);
+  }
+}
+
+/* Optional geometric frame */
+.loader::before {
+  content: "";
+  position: absolute;
+  width: 140%;
+  height: 140%;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  transform: rotate(2deg);
+  pointer-events: none;
+}
+
+/* Responsive tweaks */
+@media (max-width: 768px) {
+  .loader span {
+    font-size: clamp(16px, 5vw, 28px);
+    letter-spacing: clamp(2px, 0.6vw, 6px);
+  }
+}
+
+@media (max-width: 480px) {
+  .loader span {
+    font-size: clamp(14px, 6vw, 22px);
+    letter-spacing: clamp(1px, 0.4vw, 4px);
+  }
+  .loader::before {
+    width: 120%;
+    height: 120%;
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.animate-shimmer {
+  animation: shimmer 3s linear infinite;
+}
