@@ -108,13 +108,20 @@ const ProjectTable = ({
                 </td>
 
                 {/* Link */}
-                <td className="align-middle">
+                <td className="align-middle flex items-center gap-2">
                   <Link
                     href={project.url}
                     target="_blank"
                     className="text-blue-400 hover:underline"
                   >
-                    View
+                    Live
+                  </Link>
+                  <Link
+                    href={project.url}
+                    target="_blank"
+                    className="text-green-400 hover:underline"
+                  >
+                    Github
                   </Link>
                 </td>
 

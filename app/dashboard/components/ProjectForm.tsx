@@ -31,6 +31,7 @@ export const projectFormSchema = z.object({
   stack: z.string().min(3, "Stack must be at least 3 characters."),
   image: z.string(),
   url: z.string().url("Must be a valid URL."),
+  github: z.string().url("Must be a valid URL."),
   category: z.string().refine((val) => categories.includes(val), {
     message: "Invalid category selected.",
   }),
@@ -93,6 +94,7 @@ const ProjectForm = ({
           stack: values.stack,
           image: uploadedImageUrl,
           url: values.url,
+          github: values.url,
           category: values.category,
           author: userId,
         });
@@ -106,6 +108,7 @@ const ProjectForm = ({
           stack: values.stack,
           image: uploadedImageUrl,
           url: values.url,
+          github: values.url,
           category: values.category,
           author: userId,
         });
@@ -224,6 +227,23 @@ const ProjectForm = ({
               <FormControl>
                 <Input
                   placeholder="URL (e.g., https://example.com)"
+                  {...field}
+                  className="input-field"
+                />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+
+        <FormField
+          control={form.control}
+          name="github"
+          render={({ field }) => (
+            <FormItem className="w-full">
+              <FormControl>
+                <Input
+                  placeholder="URL (e.g., https://github.com/..)"
                   {...field}
                   className="input-field"
                 />

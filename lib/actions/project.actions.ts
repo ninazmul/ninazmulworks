@@ -11,6 +11,7 @@ export const createProject = async ({
   stack,
   image,
   url,
+  github,
   category,
   author
 }: CreateProjectParams) => {
@@ -23,6 +24,7 @@ export const createProject = async ({
       stack,
       image,
       url,
+      github,
       category,
       author
     });

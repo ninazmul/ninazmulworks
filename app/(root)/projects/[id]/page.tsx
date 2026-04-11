@@ -1,7 +1,7 @@
 import MagicButton from "@/components/MagicButton";
 import { getProjectById } from "@/lib/actions/project.actions";
 import Link from "next/link";
-import { FaLocationArrow } from "react-icons/fa6";
+import { FaGithub, FaLocationArrow } from "react-icons/fa6";
 import ProjectHero from "@/components/ProjectHero";
 
 type PageProps = {
@@ -83,21 +83,38 @@ const ProjectDetails = async ({ params }: PageProps) => {
             </p>
           </div>
 
-          {project.url && (
-            <div className="flex justify-center mt-6">
-              <Link
-                href={project.url}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <MagicButton
-                  title="Live Link"
-                  icon={<FaLocationArrow />}
-                  position="right"
-                />
-              </Link>
-            </div>
-          )}
+          <div className="flex flex-wrap items-center justify-center gap-4">
+            {project.url && (
+              <div className="flex justify-center mt-6">
+                <Link
+                  href={project.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <MagicButton
+                    title="Live Link"
+                    icon={<FaLocationArrow />}
+                    position="right"
+                  />
+                </Link>
+              </div>
+            )}
+            {project.github && (
+              <div className="flex justify-center mt-6">
+                <Link
+                  href={project.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <MagicButton
+                    title="Github Link"
+                    icon={<FaGithub />}
+                    position="right"
+                  />
+                </Link>
+              </div>
+            )}
+          </div>
         </div>
       </div>
     </section>

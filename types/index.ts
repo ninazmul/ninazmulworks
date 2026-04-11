@@ -34,6 +34,7 @@ export type CreateProjectParams = {
   stack: string;
   image: string;
   url: string;
+  github: string;
   category: string;
   author: string;
 };

@@ -7,6 +7,7 @@ export interface IProject extends Document {
   stack: string;
   image: string;
   url: string;
+  github: string;
   category: string;
   author: string;
 }
@@ -17,6 +18,7 @@ const ProjectSchema = new Schema({
   stack: { type: String },
   image: { type: String, required: true },
   url: { type: String },
+  github: { type: String },
   category: { type: String, required: true },
   author: { type: String, required: true },
 });
