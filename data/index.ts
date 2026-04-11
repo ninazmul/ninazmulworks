@@ -1,96 +1,104 @@
+export const featuredProjects = [
+  {
+    id: "drop-and-shipping",
+    title: "Drop And Shipping",
+    description: "A scalable e-commerce and logistics platform featuring product management and advanced shipping workflows.",
+    stack: "Next.js, Node.js, MongoDB, Tailwind CSS",
+    image: "/assets/images/projects/drop-shipping.png",
+    url: "https://dropandshipping.com",
+    category: "E-commerce & Logistics"
+  },
+  {
+    id: "suffah-institute",
+    title: "Suffah Institute of Australia",
+    description: "A responsive community platform with custom CMS capabilities for event and content management.",
+    stack: "React, Express.js, MongoDB, Node.js",
+    image: "/assets/images/projects/suffah.png",
+    url: "https://suffahaustralia.org.au",
+    category: "Community Platform"
+  },
+  {
+    id: "ab-partner-portal",
+    title: "AB Partner Portal",
+    description: "An academic and partner management system developed for Academic Bridge English School, Ireland.",
+    stack: "Next.js, Node.js, MongoDB, REST API",
+    image: "/assets/images/projects/ab-portal.png",
+    url: "https://abpartnerportal.com",
+    category: "Management System"
+  }
+];
 
-export const gridItems = [
+export const education = [
   {
     id: 1,
-    title: "I prioritize clear communication and collaboration",
-    description: "",
-    className: "lg:col-span-3 md:col-span-6 md:row-span-4 lg:min-h-[60vh]",
-    imgClassName: "w-full h-full",
-    titleClassName: "justify-end",
-    img: "/b1.svg",
-    spareImg: "",
+    institution: "Programming Hero",
+    program: "Complete Web Development Program",
+    year: "2023",
+    description: "Full-stack development with React, Next.js, Node.js, MongoDB. Built and deployed production-ready applications."
   },
   {
     id: 2,
-    title: "Flexible with different time zones",
-    description: "",
-    className: "lg:col-span-2 md:col-span-3 md:row-span-2",
-    imgClassName: "",
-    titleClassName: "justify-start",
-    img: "",
-    spareImg: "",
+    institution: "Phitron",
+    program: "CSE Fundamentals",
+    year: "2025",
+    description: "Advanced DSA (Graphs, Dijkstra, Floyd-Warshall, Dynamic Programming), Algorithms, and Python OOP."
   },
   {
     id: 3,
-    title: "My tech stack",
-    description: "I'm always exploring new technologies",
-    className: "lg:col-span-2 md:col-span-3 md:row-span-2",
-    imgClassName: "",
-    titleClassName: "justify-center",
-    img: "",
-    spareImg: "",
+    institution: "BCEDS",
+    program: "Basic Computer Application",
+    year: "2018",
+    description: "MS Office tools and essential computer applications; foundational IT literacy and productivity skills."
+  }
+];
+
+export const certifications = [
+  {
+    id: 1,
+    title: "Software Engineer Certificate",
+    issuer: "HackerRank",
+    link: "https://www.hackerrank.com/certificates/0e0e8978c659"
+  },
+  {
+    id: 2,
+    title: "Problem Solving (Basic)",
+    issuer: "HackerRank",
+    link: "https://www.hackerrank.com/certificates/63049b05fe7a"
+  },
+  {
+    id: 3,
+    title: "Data Structures and Algorithms",
+    issuer: "Phitron",
+    link: "#"
   },
   {
     id: 4,
-    title: "A passionate developer driven by clean code and innovation.",
-    description: "",
-    className: "lg:col-span-2 md:col-span-3 md:row-span-1",
-    imgClassName: "",
-    titleClassName: "justify-start",
-    img: "/grid.svg",
-    spareImg: "/b4.svg",
-  },
-
-  {
-    id: 5,
-    title: "Developing a Next.js Application",
-    description: "Behind the Scenes",
-    className: "md:col-span-3 md:row-span-2",
-    imgClassName: "absolute right-0 bottom-0 md:w-96 w-60",
-    titleClassName: "justify-center md:justify-start lg:justify-center",
-    img: "/b5.svg",
-    spareImg: "/grid.svg",
-  },
-  {
-    id: 6,
-    title: "Do you want to start a project together?",
-    description: "",
-    className: "lg:col-span-2 md:col-span-3 md:row-span-1",
-    imgClassName: "",
-    titleClassName: "justify-center md:max-w-full max-w-60 text-center",
-    img: "",
-    spareImg: "",
-  },
+    title: "Full Stack Developer in MERN Stack",
+    issuer: "IT Training BD",
+    link: "#"
+  }
 ];
 
 export const services = [
   {
     id: 1,
-    title: "MERN Stack & Next.js Solutions",
-    desc: "I build full-stack web applications using MongoDB, Express.js, React.js, Node.js, and Next.js, delivering scalable, dynamic solutions with optimized performance, SEO, and user experience.",
-    className: "md:col-span-2",
-    thumbnail: "/exp1.svg",
+    title: "Enterprise CMS & CRM",
+    desc: "Architecting scalable content and customer management systems tailored for operational efficiency and secure role-based access.",
   },
   {
     id: 2,
-    title: "Mobile App Development",
-    desc: "I create seamless, cross-platform mobile apps for iOS and Android using React Native and Flutter, ensuring smooth user experiences across devices.",
-    className: "md:col-span-2", // change to md:col-span-2
-    thumbnail: "/exp2.svg",
+    title: "LMS & E-commerce Platforms",
+    desc: "Building production-ready learning and trading ecosystems with optimized payment flows and high-performance backends.",
   },
   {
     id: 3,
-    title: "WordPress Solutions",
-    desc: "From custom themes to plugins, I deliver fully optimized WordPress websites that are easy to manage, fast, and visually engaging for your audience.",
-    className: "md:col-span-2", // change to md:col-span-2
-    thumbnail: "/exp3.svg",
+    title: "Secure API Architecture",
+    desc: "Designing and optimizing RESTful APIs with a focus on security, performance, and reduced query latency.",
   },
   {
     id: 4,
-    title: "Game Development",
-    desc: "I specialize in game development using Construct 3 and Unity, offering both new game creation and reskinning services with high-quality design and smooth gameplay.",
-    className: "md:col-span-2",
-    thumbnail: "/exp4.svg",
+    title: "Cloud Deployment & DevOps",
+    desc: "Managing full-cycle deployments on Linux/VPS, Dockerizing applications, and ensuring architectural resilience.",
   },
 ];
 

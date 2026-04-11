@@ -2,33 +2,19 @@ import { FaLocationArrow } from "react-icons/fa6";
 import Image from "next/image";
 import { getAllProjects } from "@/lib/actions/project.actions";
 import Link from "next/link";
-import MagicButton from "./MagicButton";
 import { PinContainer } from "./ui/Pin";
+import { featuredProjects } from "@/data";
 
 const RecentProjects = async () => {
-  const projects = await getAllProjects();
+  const dbProjects = await getAllProjects() || [];
+  
+  // Merge featured projects with DB projects, avoiding duplicates by title
+  const allProjects = [
+    ...featuredProjects,
+    ...dbProjects.filter((dp: any) => !featuredProjects.some(fp => fp.title === dp.title))
+  ];
 
-  const categories = {
-    WebApps: projects.filter((p: any) => p.category === "WebApps"),
-    MobileApps: projects.filter((p: any) => p.category === "MobileApps"),
-    Games: projects.filter((p: any) => p.category === "Games"),
-  };
-
-  const interleavedProjects: any[] = [];
-  const maxLength = Math.max(
-    categories.WebApps.length,
-    categories.MobileApps.length,
-    categories.Games.length,
-  );
-
-  for (let i = 0; i < maxLength; i++) {
-    if (categories.WebApps[i]) interleavedProjects.push(categories.WebApps[i]);
-    if (categories.MobileApps[i])
-      interleavedProjects.push(categories.MobileApps[i]);
-    if (categories.Games[i]) interleavedProjects.push(categories.Games[i]);
-  }
-
-  const displayedProjects = interleavedProjects.slice(0, 6); // Limit to 6 for "Featured" look
+  const displayedProjects = allProjects.slice(0, 6); 
 
   return (
     <section id="projects" className="py-24 bg-black text-white relative">
@@ -48,11 +34,11 @@ const RecentProjects = async () => {
       {/* Grid */}
       <div className="flex flex-wrap items-center justify-center gap-x-12 gap-y-16 mt-10 px-6 max-w-7xl mx-auto">
         {displayedProjects.map((item: any) => (
-          <div key={item._id} className="lg:min-h-[32.5rem] h-[25rem] flex items-center justify-center sm:w-96 w-[80vw]">
-            <Link href={`/projects/${item._id}`}>
+          <div key={item.id || item._id} className="lg:min-h-[32.5rem] h-[25rem] flex items-center justify-center sm:w-96 w-[80vw]">
+            <Link href={item.url || `/projects/${item._id}`}>
               <PinContainer
                 title="Explore Architecture"
-                href={`/projects/${item._id}`}
+                href={item.url || `/projects/${item._id}`}
               >
                 <div className="flex basis-full flex-col p-4 tracking-tight text-zinc-100/50 sm:basis-1/2 w-[20rem] lg:w-[22rem] h-[26rem] lg:h-[28rem] group/card relative">
                   {/* Glassmorphic Inner Wrapper */}
@@ -107,7 +93,7 @@ const RecentProjects = async () => {
         <Link href="/projects" className="group text-zinc-500 hover:text-white transition-colors text-sm font-light inline-flex items-center gap-2">
             View archives
             <span className="w-8 h-px bg-zinc-800 group-hover:w-12 transition-all duration-300" />
-            <span className="font-mono">{projects.length} PROJECTS</span>
+            <span className="font-mono">{allProjects.length} PROJECTS</span>
         </Link>
       </div>
     </section>

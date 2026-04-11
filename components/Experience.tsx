@@ -6,22 +6,22 @@ import { GlassCard } from "./ui/GlassCard";
 
 const experiences = [
   {
-    role: "Senior Software Engineer",
-    company: "Tech Corp",
-    date: "2022 - Present",
-    desc: "Spearheading the transition to a micro-frontend architecture, optimizing build times by 40% and mentoring 5+ junior developers through advanced engineering patterns.",
+    role: "Founder & Full-Stack Developer",
+    company: "ArtistyCode Studio",
+    date: "Jan 2024 - Present",
+    desc: "Architecting scalable CMS, CRM, and LMS platforms using Next.js and MERN. Designed secure role-based access systems and reduced client onboarding time by 25%.",
   },
   {
-    role: "Full Stack Developer",
-    company: "Digital Innovations",
-    date: "2019 - 2022",
-    desc: "Developed and maintained mission-critical web applications for international clients using Next.js and Go. Focused on reducing technical debt and improving SEO performance by 60%.",
+    role: "Contract Full-Stack Developer",
+    company: "Academic Bridge English School, Ireland",
+    date: "May 2025 - Present",
+    desc: "Developing the AB Partner Portal for academic management. Optimized API performance, reducing response times by 30% through advanced backend tuning.",
   },
   {
-    role: "Frontend Engineer",
-    company: "Creative Agency",
-    date: "2017 - 2019",
-    desc: "Crafted interactive UI components and high-performance landing pages. Implemented complex animations and ensured cross-browser excellence.",
+    role: "Full-Stack Developer Intern",
+    company: "IT Training BD",
+    date: "Jul 2024 - Sep 2024",
+    desc: "Built robust MERN stack applications with TypeScript. Optimized CRUD operations, successfully reducing query execution time by 40% for localized datasets.",
   },
 ];
 

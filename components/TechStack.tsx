@@ -1,22 +1,28 @@
 "use client";
 
 import React from "react";
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 import { GlassCard } from "./ui/GlassCard";
 import { cn } from "@/lib/utils";
 
 const stack = [
+  { name: "Next.js", category: "Frontend", shadow: "shadow-zinc-500/10" },
   { name: "React", category: "Frontend", shadow: "shadow-zinc-500/10" },
-  { name: "Next.js", category: "Core Framework", shadow: "shadow-zinc-500/10" },
-  { name: "TypeScript", category: "Logic", shadow: "shadow-zinc-500/10" },
-  { name: "Node.js", category: "Server Side", shadow: "shadow-zinc-500/10" },
+  { name: "TypeScript", category: "Frontend", shadow: "shadow-zinc-500/10" },
+  { name: "Tailwind CSS", category: "Frontend", shadow: "shadow-zinc-500/10" },
+  { name: "Node.js", category: "Backend", shadow: "shadow-zinc-500/10" },
+  { name: "Express.js", category: "Backend", shadow: "shadow-zinc-500/10" },
+  { name: "REST APIs", category: "Backend", shadow: "shadow-zinc-500/10" },
   { name: "MongoDB", category: "Database", shadow: "shadow-zinc-500/10" },
-  { name: "Tailwind CSS", category: "Design", shadow: "shadow-zinc-500/10" },
-  { name: "Framer Motion", category: "Animation", shadow: "shadow-zinc-500/10" },
-  { name: "AWS", category: "Infrastructure", shadow: "shadow-zinc-500/10" },
+  { name: "PostgreSQL", category: "Database", shadow: "shadow-zinc-500/10" },
+  { name: "MySQL", category: "Database", shadow: "shadow-zinc-500/10" },
+  { name: "Docker", category: "Tools", shadow: "shadow-zinc-500/10" },
+  { name: "Git", category: "Tools", shadow: "shadow-zinc-500/10" },
+  { name: "Linux / VPS", category: "Platform", shadow: "shadow-zinc-500/10" },
+  { name: "Firebase", category: "Platform", shadow: "shadow-zinc-500/10" },
 ];
 
-const container = {
+const container: Variants = {
   hidden: { opacity: 0 },
   show: {
     opacity: 1,
@@ -26,7 +32,7 @@ const container = {
   },
 };
 
-const itemAnim = {
+const itemAnim: Variants = {
   hidden: { opacity: 0, scale: 0.95, y: 10 },
   show: { opacity: 1, scale: 1, y: 0, transition: { type: "spring", damping: 20 } },
 };

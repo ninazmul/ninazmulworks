@@ -51,7 +51,7 @@ const Hero = () => {
         </motion.div>
 
         <TextGenerateEffect
-          words="Crafting Scalable Digital Architectures"
+          words="Architecting Scalable Full-Stack Solutions"
           className="text-center text-[36px] sm:text-[45px] md:text-6xl lg:text-7xl font-bold leading-tight"
         />
 
@@ -59,13 +59,13 @@ const Hero = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.8, delay: 1 }}
-          className="max-w-2xl mt-6 px-4"
+          className="max-w-3xl mt-6 px-4"
         >
           <p className="text-sm md:text-lg lg:text-xl text-zinc-400 leading-relaxed font-light">
             I am <span className="text-white font-medium italic underline underline-offset-4 decoration-zinc-700">Nazmul Islam</span>, 
-            a Full-Stack Developer specialized in building high-performance 
-            ecosystems. I bridge the gap between geometric clarity and 
-            technical excellence.
+            a Full-Stack Developer specializing in <span className="text-zinc-200">Next.js</span> and the <span className="text-zinc-200">MERN stack</span>. 
+            I build production-ready platforms—CMS, CRM, LMS, and E-commerce ecosystems—engineered for 
+            performance and scale.
           </p>
         </motion.div>
 

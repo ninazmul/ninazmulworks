@@ -5,10 +5,10 @@ import { motion } from "framer-motion";
 import { GlassCard } from "./ui/GlassCard";
 
 const metrics = [
-  { label: "Years Experience", value: "5+" },
-  { label: "Projects Completed", value: "40+" },
-  { label: "Code Coverage", value: "90%" },
-  { label: "Uptime Guaranteed", value: "99.9%" },
+  { label: "Onboarding Gain", value: "25%" },
+  { label: "API Efficiency", value: "30%+" },
+  { label: "Projects Led", value: "ArtistyCode" },
+  { label: "Stack Focus", value: "Next.js" },
 ];
 
 const About = () => {
@@ -26,13 +26,13 @@ const About = () => {
             transition={{ duration: 0.5 }}
           >
             <h2 className="text-3xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-zinc-200 to-zinc-500 mb-6">
-              Engineering Digital Resilience
+              The ArtistyCode Vision
             </h2>
-            <p className="text-zinc-400 text-lg leading-relaxed max-w-2xl">
-              I specialize in architecting systems that balance aesthetic 
-              finesse with enterprise-grade stability. My philosophy is 
-              anchored in clean code principles, performance optimization, 
-              and user-centric design.
+            <p className="text-zinc-400 text-lg leading-relaxed max-w-2xl font-light">
+              As the <span className="text-white font-medium">Founder of ArtistyCode Studio</span>, I lead full-cycle 
+              software engineering environments. I bridge the gap between architectural 
+              integrity and business growth, delivering CMS, CRM, and LMS solutions that 
+              prioritize secure API design and operational speed.
             </p>
           </motion.div>
 
@@ -46,8 +46,8 @@ const About = () => {
                 transition={{ duration: 0.5, delay: idx * 0.1 }}
                 className="flex flex-col"
               >
-                <span className="text-2xl md:text-3xl font-bold text-white">{metric.value}</span>
-                <span className="text-xs uppercase tracking-widest text-zinc-500 mt-1 font-mono">{metric.label}</span>
+                <span className="text-2xl md:text-3xl font-bold text-white tracking-tighter">{metric.value}</span>
+                <span className="text-[10px] uppercase tracking-[0.2em] text-zinc-600 mt-1 font-mono">{metric.label}</span>
               </motion.div>
             ))}
           </div>
@@ -56,18 +56,18 @@ const About = () => {
         {/* Feature Cards */}
         <div className="lg:w-1/3 w-full space-y-6">
             <GlassCard className="p-8 border-l-4 border-l-zinc-700">
-                <h3 className="text-white font-semibold mb-3">Architectural Vision</h3>
-                <p className="text-zinc-500 text-sm leading-relaxed">
-                    Moving beyond templates to build custom modular systems 
-                    that grow with your business goals and scale infinitely.
+                <h3 className="text-white font-semibold mb-3">Modular Architecture</h3>
+                <p className="text-zinc-500 text-sm leading-relaxed font-light">
+                    Designing scalable systems (CMS/LMS) that eliminate 
+                    operational bottlenecks and reduce client onboarding times.
                 </p>
             </GlassCard>
 
             <GlassCard className="p-8 border-l-4 border-l-zinc-300">
-                <h3 className="text-white font-semibold mb-3">Performance First</h3>
-                <p className="text-zinc-500 text-sm leading-relaxed">
-                    Optimizing every bit and pixel to deliver speed that captures 
-                    attention and retains users across all devices.
+                <h3 className="text-white font-semibold mb-3">Backend Optimization</h3>
+                <p className="text-zinc-500 text-sm leading-relaxed font-light">
+                    Proven track record in optimizing REST APIs and query execution 
+                    times by up to 40% for production-ready ecosystems.
                 </p>
             </GlassCard>
         </div>

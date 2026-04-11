@@ -2,6 +2,8 @@ import Hero from "@/components/Hero";
 import About from "@/components/About";
 import TechStack from "@/components/TechStack";
 import Experience from "@/components/Experience";
+import Education from "@/components/Education";
+import Certifications from "@/components/Certifications";
 import Clients from "@/components/Clients";
 import RecentProjects from "@/components/RecentProjects";
 
@@ -14,6 +16,8 @@ const Home = () => {
         <TechStack />
         <RecentProjects />
         <Experience />
+        <Education />
+        <Certifications />
         <Clients />
       </div>
     </main>
