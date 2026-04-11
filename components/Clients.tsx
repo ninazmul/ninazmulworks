@@ -2,25 +2,16 @@
 
 import React, { useEffect, useState } from "react";
 import { getAllReviews } from "@/lib/actions/review.actions";
-import {
-  Sheet,
-  SheetContent,
-  SheetDescription,
-  SheetHeader,
-  SheetTitle,
-  SheetTrigger,
-} from "./ui/sheet";
-import ReviewForm from "@/app/dashboard/components/ReviewForm";
-import MagicButton from "./MagicButton";
 import { Star } from "lucide-react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
+import { GlassCard } from "./ui/GlassCard";
+import { cn } from "@/lib/utils";
 
 const Clients = () => {
   const [reviews, setReviews] = useState<any[]>([]);
   const [index, setIndex] = useState(0);
 
-  // Fetch reviews once
   useEffect(() => {
     const fetchReviews = async () => {
       try {
@@ -33,12 +24,11 @@ const Clients = () => {
     fetchReviews();
   }, []);
 
-  // Auto slide
   useEffect(() => {
     if (!reviews.length) return;
     const interval = setInterval(
       () => setIndex((prev) => (prev + 1) % reviews.length),
-      5000, // slightly slower for readability
+      8000, 
     );
     return () => clearInterval(interval);
   }, [reviews]);
@@ -46,93 +36,76 @@ const Clients = () => {
   const currentReview = reviews[index];
 
   return (
-    <section id="testimonials" className="py-20 bg-black text-white px-6">
-      {/* Heading */}
-      <div className="text-center max-w-2xl mx-auto">
-        <h1 className="text-3xl md:text-5xl font-semibold">Client Feedback</h1>
-        <p className="text-white/60 mt-3 text-sm">
-          Real experiences from real clients.
-        </p>
-      </div>
+    <section id="testimonials" className="py-24 bg-black text-white px-6 relative overflow-hidden">
+      <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-zinc-800 to-transparent" />
+      
+      <div className="max-w-4xl mx-auto">
+        <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-5xl font-semibold bg-clip-text text-transparent bg-gradient-to-r from-zinc-200 to-neutral-500 italic">
+                Strategic Endorsements
+            </h2>
+            <p className="text-zinc-500 mt-4 text-sm font-light uppercase tracking-[0.2em] font-mono">
+                Validated capability by industry peers
+            </p>
+        </div>
 
-      {/* Slider */}
-      <div className="mt-16 mx-auto overflow-hidden">
-        <AnimatePresence mode="wait">
-          {currentReview && (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -20 }}
-              transition={{ duration: 0.5 }}
-              className="border border-white/10 rounded-2xl p-8 bg-white/5 backdrop-blur-xl shadow-[0_8px_32px_0_rgba(255,255,255,0.05)] relative overflow-hidden"
-            >
-              {/* Subtle glare effect inside */}
-              <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent pointer-events-none opacity-20" />
-              {/* Profile */}
-              <div className="flex items-center gap-3 mb-4">
-                <div className="w-10 h-10 rounded-full overflow-hidden border border-white/10">
-                  <Image
-                    src={
-                      currentReview.image || "/assets/images/default-avatar.png"
-                    }
-                    alt={currentReview.name || "Client avatar"}
-                    width={40}
-                    height={40}
-                    className="object-cover w-full h-full"
-                  />
-                </div>
-                <div>
-                  <p className="text-sm font-medium">{currentReview.name}</p>
-                  <p className="text-xs text-white/50">{currentReview.title}</p>
-                </div>
-              </div>
+        <div className="relative h-[300px] md:h-[250px] flex items-center justify-center">
+            <AnimatePresence mode="wait">
+                {currentReview ? (
+                    <motion.div
+                        key={index}
+                        initial={{ opacity: 0, scale: 0.98, y: 10 }}
+                        animate={{ opacity: 1, scale: 1, y: 0 }}
+                        exit={{ opacity: 0, scale: 1.02, y: -10 }}
+                        transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+                        className="w-full"
+                    >
+                        <GlassCard className="p-10 md:p-12 border-zinc-800/50 bg-white/[0.01]">
+                            <div className="flex flex-col md:flex-row gap-8 items-center md:items-start text-center md:text-left">
+                                <div className="shrink-0">
+                                    <div className="w-16 h-16 rounded-2xl overflow-hidden border border-zinc-700 shadow-2xl skew-x-1">
+                                        <Image
+                                            src={currentReview.image || "/assets/images/default-avatar.png"}
+                                            alt={currentReview.name || "Peer"}
+                                            width={64}
+                                            height={64}
+                                            className="object-cover w-full h-full grayscale hover:grayscale-0 transition-all duration-500"
+                                        />
+                                    </div>
+                                </div>
+                                <div className="space-y-4">
+                                     <div className="flex flex-col gap-0.5">
+                                        <p className="text-lg font-bold text-white leading-none tracking-tight">{currentReview.name}</p>
+                                        <p className="text-xs text-zinc-500 font-mono uppercase tracking-widest">{currentReview.title}</p>
+                                    </div>
+                                    
+                                    <p className="text-lg md:text-xl text-zinc-300 font-light leading-relaxed italic">
+                                        &ldquo;{currentReview.quote}&rdquo;
+                                    </p>
+                                </div>
+                            </div>
+                        </GlassCard>
+                    </motion.div>
+                ) : (
+                    <div className="text-zinc-800 font-mono text-sm animate-pulse uppercase tracking-[0.5em]">
+                        Loading testimony sequence...
+                    </div>
+                )}
+            </AnimatePresence>
+        </div>
 
-              {/* Stars */}
-              <div className="flex gap-1 mb-3 text-white/80">
-                {Array.from({ length: 5 }).map((_, i) => (
-                  <Star
-                    key={i}
-                    className="w-4 h-4"
-                    fill="white"
-                    stroke="white"
-                  />
-                ))}
-              </div>
-
-              {/* Quote */}
-              <p className="text-sm text-white/70 leading-relaxed">
-                “{currentReview.quote}”
-              </p>
-            </motion.div>
-          )}
-        </AnimatePresence>
-      </div>
-
-      {/* CTA */}
-      <div className="flex justify-center mt-16">
-        <Sheet>
-          <SheetTrigger asChild>
-            <MagicButton
-              title="Leave a Review"
-              icon={<Star />}
-              position="right"
-            />
-          </SheetTrigger>
-
-          <SheetContent className="bg-black text-white border-l border-white/10">
-            <SheetHeader>
-              <SheetTitle>Share Your Experience</SheetTitle>
-              <SheetDescription className="text-white/60">
-                Your feedback helps us grow.
-              </SheetDescription>
-            </SheetHeader>
-
-            <div className="py-6">
-              <ReviewForm type="Create" />
-            </div>
-          </SheetContent>
-        </Sheet>
+        <div className="flex justify-center mt-12 gap-2">
+            {reviews.map((_, i) => (
+                <button 
+                    key={i} 
+                    onClick={() => setIndex(i)}
+                    className={cn(
+                        "w-8 h-1 transition-all duration-500 rounded-full",
+                        index === i ? "bg-zinc-200" : "bg-zinc-800 hover:bg-zinc-700"
+                    )}
+                />
+            ))}
+        </div>
       </div>
     </section>
   );

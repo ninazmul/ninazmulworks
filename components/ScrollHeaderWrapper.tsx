@@ -4,12 +4,13 @@ import { useState, useEffect, useRef, useCallback } from "react";
 
 export default function ScrollHeaderWrapper({
   children,
-  headerHeight = 144,
+  headerHeight = 80,
 }: {
   children: React.ReactNode;
   headerHeight?: number;
 }) {
   const [showHeader, setShowHeader] = useState(true);
+  const [isScrolled, setIsScrolled] = useState(false);
   const lastScrollY = useRef(0);
   const ticking = useRef(false);
 
@@ -18,10 +19,18 @@ export default function ScrollHeaderWrapper({
       requestAnimationFrame(() => {
         const currentScrollY = window.scrollY;
 
+        // Hide/Show logic
         if (currentScrollY > lastScrollY.current && currentScrollY > 300) {
           setShowHeader(false);
         } else {
           setShowHeader(true);
+        }
+
+        // Transparency logic
+        if (currentScrollY > 50) {
+            setIsScrolled(true);
+        } else {
+            setIsScrolled(false);
         }
 
         lastScrollY.current = currentScrollY;
@@ -38,23 +47,21 @@ export default function ScrollHeaderWrapper({
   }, [handleScroll]);
 
   return (
-    <div>
+    <>
       <div
-        className={`fixed top-0 left-0 w-full transition-transform duration-300 z-50 ${
+        className={`fixed top-4 left-1/2 -translate-x-1/2 w-[95%] max-w-7xl transition-all duration-500 z-50 ${
           showHeader
-            ? "translate-y-0 shadow-lg shadow-black/20"
-            : "-translate-y-full"
+            ? "translate-y-0 opacity-100"
+            : "-translate-y-20 opacity-0"
+        } ${
+            isScrolled 
+            ? "bg-black/40 backdrop-blur-xl border border-white/10 py-1 rounded-2xl shadow-2xl" 
+            : "bg-transparent py-2 px-0"
         }`}
       >
         {children}
       </div>
-      {/* Spacer to account for the header height */}
-      <div
-        style={{ height: headerHeight }}
-        className={`transition-all duration-300 ${
-          showHeader ? "h-[144px]" : "h-0"
-        }`}
-      />
-    </div>
+      {/* Spacer removed or minimized for fixed floating nav */}
+    </>
   );
 }

@@ -20,7 +20,7 @@ const Approach = () => {
   return (
     <section className="py-24 bg-black text-white px-6 relative">
       {/* Background glow */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,_var(--tw-gradient-stops))] from-cyan-900/10 via-transparent to-transparent pointer-events-none" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,_var(--tw-gradient-stops))] from-white/5 via-transparent to-transparent pointer-events-none" />
 
       {/* Heading */}
       <div className="text-center max-w-2xl mx-auto relative z-10">

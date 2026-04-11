@@ -22,65 +22,68 @@ export const socialMedia = [
 
 const Footer = () => {
   return (
-    <footer className="w-full bg-black text-white relative py-12 px-6 border-t border-white/10">
-      <div className="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
+    <footer className="w-full bg-black text-white relative py-16 px-6 border-t border-white/5 overflow-hidden">
+      {/* Background glow */}
+      <div className="absolute -bottom-24 -left-24 w-96 h-96 bg-white/[0.02] rounded-full blur-[100px] pointer-events-none" />
+
+      <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-start gap-12">
         {/* Left Section */}
-        <div className="text-center md:text-left">
-          <h2 className="text-xl md:text-2xl font-semibold mb-2">
-            N.I. Nazmul
+        <div className="max-w-md">
+          <h2 className="text-2xl font-bold tracking-tight text-white mb-4">
+            Nazmul Islam
           </h2>
-          <p className="text-sm text-white/60 max-w-md">
-            Full-stack developer · Founder · Crafting scalable SaaS platforms,
-            premium web solutions, and innovative digital experiences.
+          <p className="text-zinc-500 text-sm leading-relaxed font-light">
+            Architecting high-performance digital ecosystems. 
+            Focused on bridging technical complexity with elegant 
+            user experiences.
           </p>
+          
+          <div className="flex items-center gap-4 mt-8">
+            {socialMedia.map((item) => (
+                <a
+                    key={item.id}
+                    href={item.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-zinc-500 hover:text-white transition-colors"
+                >
+                    <div className="text-xl">{item.icon}</div>
+                </a>
+            ))}
+          </div>
         </div>
 
-        {/* Contact Buttons */}
-        <div className="flex flex-wrap justify-center md:justify-end items-center gap-4">
-          <a
-            href="mailto:contact@artistycode.studio"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <MagicButton
-              title="Email Me"
-              icon={<FaEnvelope />}
-              position="right"
-            />
-          </a>
-          <a
-            href="https://wa.me/+8801580845746"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <MagicButton
-              title="WhatsApp"
-              icon={<FaWhatsapp />}
-              position="right"
-            />
-          </a>
+        {/* Right Section / Links */}
+        <div className="grid grid-cols-2 gap-16 md:gap-24">
+            <div className="space-y-4">
+                <p className="text-[10px] font-mono uppercase tracking-[0.3em] text-zinc-600">Navigation</p>
+                <ul className="space-y-2 text-sm font-light text-zinc-400">
+                    <li className="hover:text-white transition-colors"><a href="#hero">Home</a></li>
+                    <li className="hover:text-white transition-colors"><a href="#about">About</a></li>
+                    <li className="hover:text-white transition-colors"><a href="#projects">Work</a></li>
+                    <li className="hover:text-white transition-colors"><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+            
+            <div className="space-y-4">
+                <p className="text-[10px] font-mono uppercase tracking-[0.3em] text-zinc-600">Engagement</p>
+                <ul className="space-y-2 text-sm font-light text-zinc-400">
+                    <li className="hover:text-white transition-colors"><a href="mailto:contact@artistycode.studio">Email</a></li>
+                    <li className="hover:text-white transition-colors"><a href="https://wa.me/+8801580845746">WhatsApp</a></li>
+                </ul>
+            </div>
         </div>
       </div>
 
       {/* Bottom Bar */}
-      <div className="max-w-6xl mx-auto mt-10 flex flex-col md:flex-row justify-between items-center gap-6 border-t border-white/10 pt-6">
-        <p className="text-xs md:text-sm text-white/50">
-          &copy; {new Date().getFullYear()} <a href="/dashboard" target="_blank">N.I. Nazmul</a> · All Rights
-          Reserved
+      <div className="max-w-7xl mx-auto mt-20 flex flex-col md:flex-row justify-between items-center gap-6 border-t border-white/5 pt-8">
+        <p className="text-[10px] font-mono uppercase tracking-widest text-zinc-700">
+          &copy; {new Date().getFullYear()} N.I. Nazmul — Developed with technical precision
         </p>
 
-        <div className="flex items-center gap-4">
-          {socialMedia.map((item) => (
-            <a
-              key={item.id}
-              href={item.link}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="w-9 h-9 flex items-center justify-center rounded-md border border-white/20 hover:border-white/40 hover:bg-white/10 transition"
-            >
-              {item.icon}
-            </a>
-          ))}
+        <div className="flex items-center gap-1.5 grayscale opacity-30 hover:opacity-100 transition-opacity duration-500">
+            <span className="w-1.5 h-1.5 rounded-full bg-zinc-500" />
+            <span className="text-[10px] font-mono text-zinc-500 uppercase">System Status: Optimal</span>
         </div>
       </div>
     </footer>
