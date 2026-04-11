@@ -4,20 +4,16 @@ export const headerLinks = [
     route: "#about",
   },
   {
-    label: "Projects",
-    route: "#projects",
-  },
-  {
     label: "Skills",
     route: "#tech-stack",
   },
   {
-    label: "Experience",
-    route: "#experience",
+    label: "Projects",
+    route: "#projects",
   },
   {
-    label: "Certs",
-    route: "#certifications",
+    label: "Experience",
+    route: "#experience",
   },
   {
     label: "Education",
