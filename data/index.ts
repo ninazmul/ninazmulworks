@@ -31,25 +31,25 @@ export const featuredProjects = [
 export const education = [
   {
     id: 1,
+    institution: "BCEDS",
+    program: "Basic Computer Application",
+    year: "2018",
+    description: "MS Office tools and essential computer applications; foundational IT literacy and productivity skills."
+  },
+  {
+    id: 2,
     institution: "Programming Hero",
     program: "Complete Web Development Program",
     year: "2023",
     description: "Full-stack development with React, Next.js, Node.js, MongoDB. Built and deployed production-ready applications."
   },
   {
-    id: 2,
+    id: 3,
     institution: "Phitron",
     program: "CSE Fundamentals",
     year: "2025",
     description: "Advanced DSA (Graphs, Dijkstra, Floyd-Warshall, Dynamic Programming), Algorithms, and Python OOP."
   },
-  {
-    id: 3,
-    institution: "BCEDS",
-    program: "Basic Computer Application",
-    year: "2018",
-    description: "MS Office tools and essential computer applications; foundational IT literacy and productivity skills."
-  }
 ];
 
 export const certifications = [
