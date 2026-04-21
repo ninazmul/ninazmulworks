@@ -70,11 +70,17 @@ const TechStack = () => {
                     const Icon = item.icon;
                     return (
                       <motion.div key={index} variants={itemAnim}>
-                        <GlassCard className="px-4 py-3 flex flex-col items-center justify-center border-white/5 hover:border-zinc-500/50 transition-all group h-full">
+                        <GlassCard
+                          className="px-4 py-3 flex flex-col items-center justify-center 
+                        border-white/5 hover:border-zinc-500/50 transition-all group h-full text-center"
+                        >
                           {Icon && (
-                            <Icon className="text-2xl text-zinc-400 group-hover:text-white transition-colors mb-2" />
+                            <Icon className="text-3xl text-zinc-400 group-hover:text-white transition-colors mb-2 mx-auto" />
                           )}
-                          <p className="text-xs font-medium text-zinc-400 group-hover:text-white transition-colors text-center uppercase tracking-tighter">
+                          <p
+                            className="text-xs font-medium text-zinc-400 group-hover:text-white 
+                            transition-colors uppercase tracking-tighter"
+                          >
                             {item.name}
                           </p>
                         </GlassCard>
