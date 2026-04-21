@@ -1,98 +1,113 @@
 "use client";
 
-import { motion, useMotionValue, useSpring } from "framer-motion";
-import { useEffect, useState } from "react";
-import { FaLocationArrow } from "react-icons/fa6";
-import { HoverBorderGradient } from "./ui/HoverBorder";
-import { TextGenerateEffect } from "./ui/TextGenerateEffect";
+import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
+import Image from "next/image";
+import { FaGithub, FaLinkedin, FaArrowRight } from "react-icons/fa";
 
 const Hero = () => {
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
 
-  const springConfig = { damping: 25, stiffness: 150 };
-  const glowX = useSpring(mouseX, springConfig);
-  const glowY = useSpring(mouseY, springConfig);
+  const glowX = useSpring(mouseX, { damping: 30, stiffness: 180 });
+  const glowY = useSpring(mouseY, { damping: 30, stiffness: 180 });
 
-  const handleMouseMove = ({ clientX, clientY, currentTarget }: React.MouseEvent) => {
-    const { left, top } = currentTarget.getBoundingClientRect();
-    mouseX.set(clientX - left);
-    mouseY.set(clientY - top);
+  // subtle parallax for image
+  const rotateX = useTransform(mouseY, [0, 600], [6, -6]);
+  const rotateY = useTransform(mouseX, [0, 600], [-6, 6]);
+
+  const handleMouseMove = (e: React.MouseEvent) => {
+    const { left, top, width, height } =
+      e.currentTarget.getBoundingClientRect();
+    mouseX.set(e.clientX - left - width / 2);
+    mouseY.set(e.clientY - top - height / 2);
   };
 
   return (
-    <section 
-      id="hero"
+    <section
       onMouseMove={handleMouseMove}
-      className="relative w-full overflow-hidden bg-black text-white min-h-[90vh] flex items-center justify-center pt-24"
+      className="relative w-full bg-black text-white flex items-center justify-center overflow-hidden px-5 sm:px-6 lg:px-10 py-20 min-h-screen"
     >
-      {/* Dynamic Mouse Glow */}
+      {/* Dynamic Glow */}
       <motion.div
-        className="pointer-events-none absolute inset-0 z-0 opacity-40 transition-opacity duration-500 group-hover:opacity-100"
+        className="pointer-events-none absolute inset-0 opacity-40"
         style={{
-          background: `radial-gradient(600px circle at ${glowX}px ${glowY}px, rgba(255,255,255,0.06), transparent 80%)`,
+          background: `radial-gradient(600px circle at ${glowX}px ${glowY}px, rgba(255,255,255,0.08), transparent 70%)`,
         }}
       />
 
-      {/* Atmospheric Secondary Glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80vw] h-[80vw] md:w-[600px] md:h-[600px] bg-[radial-gradient(circle,_rgba(255,255,255,0.03)_0%,_rgba(0,0,0,0)_60%)] pointer-events-none" />
+      {/* Ambient Gradient */}
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.03),transparent_60%)]" />
 
-      <div className="relative z-10 flex flex-col items-center justify-center max-w-[89vw] md:max-w-2xl lg:max-w-[75vw] text-center">
-        <motion.div
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          className="flex items-center gap-2 mb-6"
-        >
-          <span className="w-2 h-2 rounded-full bg-zinc-500 animate-pulse" />
-          <p className="uppercase tracking-[0.4em] text-xs md:text-sm text-zinc-400 font-mono">
-            Available for new opportunities
+      <div className="relative z-10 w-full max-w-7xl grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+        {/* LEFT SIDE */}
+        <div className="space-y-6 text-center lg:text-left">
+          <div className="inline-flex items-center gap-2 px-3 py-1 border border-zinc-800 rounded-full text-xs text-zinc-400 mx-auto lg:mx-0">
+            <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />
+            Available for projects
+          </div>
+
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight">
+            Engineering <span className="text-zinc-400">Scalable</span>
+            <br className="hidden sm:block" /> Digital Systems
+          </h1>
+
+          <p className="text-zinc-400 text-sm sm:text-base md:text-lg max-w-xl mx-auto lg:mx-0 leading-relaxed">
+            Full-stack developer focused on building high-performance web
+            platforms — SaaS, CMS, LMS, and e-commerce systems designed for
+            scale, speed, and real-world impact.
           </p>
-        </motion.div>
 
-        <TextGenerateEffect
-          words="Architecting Scalable Full-Stack Solutions"
-          className="text-center text-[36px] sm:text-[45px] md:text-6xl lg:text-7xl font-bold leading-tight"
-        />
-
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.8, delay: 1 }}
-          className="max-w-3xl mt-6 px-4"
-        >
-          <p className="text-sm md:text-lg lg:text-xl text-zinc-400 leading-relaxed font-light">
-            I am <span className="text-white font-medium italic underline underline-offset-4 decoration-zinc-700">Nazmul Islam</span>, 
-            a Full-Stack Developer specializing in <span className="text-zinc-200">Next.js</span> and the <span className="text-zinc-200">MERN stack</span>. 
-            I build production-ready platforms—CMS, CRM, LMS, and E-commerce ecosystems—engineered for 
-            performance and scale.
-          </p>
-        </motion.div>
-
-        <motion.div
-           initial={{ opacity: 0, y: 20 }}
-           animate={{ opacity: 1, y: 0 }}
-           transition={{ duration: 0.5, delay: 1.4 }}
-           className="mt-12 flex flex-col sm:flex-row gap-6 items-center"
-        >
-          <a href="#projects">
-            <HoverBorderGradient
-              containerClassName="rounded-full shadow-2xl"
-              as="button"
-              className="bg-black text-white px-8 py-3 flex items-center space-x-3 transition-transform hover:scale-105"
+          {/* CTA */}
+          <div className="flex items-center gap-4 justify-center lg:justify-start">
+            <a
+              href="#projects"
+              className="group px-6 py-3 bg-white text-black rounded-full flex items-center gap-2 text-sm font-medium hover:scale-105 transition"
             >
-              <span className="text-sm font-semibold tracking-wide">View My Work</span>
-              <FaLocationArrow className="w-3 h-3 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
-            </HoverBorderGradient>
-          </a>
-          
-          <a 
-            href="#contact" 
-            className="text-zinc-500 hover:text-white text-sm font-medium transition-colors underline-offset-8 decoration-zinc-800 hover:decoration-white underline"
+              View Projects
+              <FaArrowRight className="group-hover:translate-x-1 transition" />
+            </a>
+
+            <a
+              href="#contact"
+              className="text-zinc-400 hover:text-white text-sm underline underline-offset-4"
+            >
+              Contact Me
+            </a>
+          </div>
+        </div>
+
+        {/* RIGHT SIDE */}
+        <div className="relative flex justify-center lg:justify-end">
+          <motion.div
+            style={{ rotateX, rotateY }}
+            initial={{ opacity: 0, y: 60 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7 }}
+            className="relative will-change-transform"
           >
-            Let&apos;s talk technical
-          </a>
-        </motion.div>
+            {/* Image */}
+            <Image
+              src="/assets/images/nazmul.webp"
+              alt="Nazmul"
+              width={500}
+              height={500}
+              priority
+              className="w-[250px] h-[250px] md:w-[400px] md:h-[400px] lg:w-[500px] lg:h-[500px] object-cover rounded-2xl border border-zinc-800 shadow-2xl"
+            />
+
+            {/* Floating Card 1 */}
+            <div className="absolute -bottom-6 -left-6 bg-zinc-900/80 backdrop-blur border border-zinc-800 p-4 rounded-xl shadow-xl">
+              <p className="text-xs text-zinc-500">Focus</p>
+              <p className="text-sm font-medium">SaaS • CMS • LMS</p>
+            </div>
+
+            {/* Floating Card 2 */}
+            <div className="absolute -top-6 -right-6 bg-zinc-900/80 backdrop-blur border border-zinc-800 p-4 rounded-xl shadow-xl">
+              <p className="text-xs text-zinc-500">Stack</p>
+              <p className="text-sm font-medium">Next.js • MERN</p>
+            </div>
+          </motion.div>
+        </div>
       </div>
     </section>
   );
