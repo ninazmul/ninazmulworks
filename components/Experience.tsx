@@ -6,16 +6,16 @@ import { GlassCard } from "./ui/GlassCard";
 
 const experiences = [
   {
-    role: "Contract Full-Stack Developer",
-    company: "Academic Bridge English School, Ireland",
-    date: "May 2025 - Present",
-    desc: "Developing the AB Partner Portal for academic management. Optimized API performance, reducing response times by 30% through advanced backend tuning.",
-  },
-  {
     role: "Full-Stack Developer",
     company: "ArtistyCode Studio",
     date: "Oct 2024 - Present",
     desc: "Architecting scalable CMS, CRM, and LMS platforms using Next.js and MERN. Designed secure role-based access systems and reduced client onboarding time by 25%.",
+  },
+  {
+    role: "Contract Full-Stack Developer",
+    company: "Academic Bridge English School, Ireland",
+    date: "May 2025 - April 2026",
+    desc: "Developing the AB Partner Portal for academic management. Optimized API performance, reducing response times by 30% through advanced backend tuning.",
   },
   {
     role: "Full-Stack Developer Intern",

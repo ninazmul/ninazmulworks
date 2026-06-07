@@ -10,14 +10,14 @@ export const featuredProjects = [
     category: "E-commerce & Logistics",
   },
   {
-    id: "suffah-institute",
-    title: "Suffah Institute of Australia",
+    id: "nrb-school",
+    title: "NRB School, Canada",
     description:
-      "A responsive community platform with custom CMS capabilities for event and content management.",
-    stack: "React, Express.js, MongoDB, Node.js",
+      "Built a comprehensive, production-ready virtual school platform for a Canadian online education provider. This is a full-featured web application — not just a landing page — covering everything from authentication to certificate generation.",
+    stack: "Next.js, Node.js, MongoDB, Tailwind CSS",
     image: "/assets/images/projects/suffah.png",
-    url: "https://suffahaustralia.org.au",
-    category: "Community Platform",
+    url: "https://nrbschool.com",
+    category: "Virtual School Platform",
   },
   {
     id: "ab-partner-portal",
