@@ -12,6 +12,12 @@ const experiences = [
     desc: "Architecting scalable CMS, CRM, and LMS platforms using Next.js and MERN. Designed secure role-based access systems and reduced client onboarding time by 25%.",
   },
   {
+    role: "Senior Web Developer",
+    company: "SA Creative Media",
+    date: "June 2023 - Present",
+    desc: "Leading high-performance teams to deliver enterprise-grade web applications using Next.js and AI integration. Expertise in building scalable SaaS solutions and custom e-commerce platforms.",
+  },
+  {
     role: "Contract Full-Stack Developer",
     company: "Academic Bridge English School, Ireland",
     date: "May 2025 - April 2026",
