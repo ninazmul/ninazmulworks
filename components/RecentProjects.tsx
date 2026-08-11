@@ -8,11 +8,16 @@ import { featuredProjects } from "@/data";
 const RecentProjects = async () => {
   const dbProjects = await getAllProjects() || [];
   
-  // Merge featured projects with DB projects, avoiding duplicates by title
-  const allProjects = [
-    ...featuredProjects,
-    ...dbProjects.filter((dp: any) => !featuredProjects.some(fp => fp.title === dp.title))
-  ];
+  // Prioritize dynamic DB projects over static featured projects if available
+  const allProjects =
+    dbProjects.length > 0
+      ? [
+          ...dbProjects,
+          ...featuredProjects.filter(
+            (fp) => !dbProjects.some((dp: any) => dp.title === fp.title)
+          ),
+        ]
+      : featuredProjects;
 
   const displayedProjects = allProjects.slice(0, 3); 
 

@@ -47,11 +47,16 @@ export const metadata: Metadata = {
 };
 
 export default async function Page() {
-  const dbProjects = await getAllProjects() || [];
-  const allProjects = [
-    ...featuredProjects,
-    ...dbProjects.filter((dp: any) => !featuredProjects.some(fp => fp.title === dp.title))
-  ];
+  const dbProjects = (await getAllProjects()) || [];
+  const allProjects =
+    dbProjects.length > 0
+      ? [
+          ...dbProjects,
+          ...featuredProjects.filter(
+            (fp) => !dbProjects.some((dp: any) => dp.title === fp.title)
+          ),
+        ]
+      : featuredProjects;
 
   return (
     <section className="bg-black text-white px-6 pt-32 pb-24 relative overflow-hidden min-h-screen">
